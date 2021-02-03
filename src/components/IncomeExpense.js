@@ -8,7 +8,6 @@ function Income_expense({ trans, loadTransactions }) {
     const transactions = trans.transactions
     const types = ['income', 'expense', 'asset', 'liability']
     useEffect(() => {
-
         loadTransactions()
     }, [])
 
@@ -22,7 +21,7 @@ function Income_expense({ trans, loadTransactions }) {
                         {types.map(type => (
                             <div key={type} className="col">
                                 <Transaction
-                                    name={type.toUpperCase()}
+                                    name={type}
                                     data={showOnly(transactions[`${type}`])} />
                             </div>
 

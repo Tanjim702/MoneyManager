@@ -1,16 +1,36 @@
 import Add from "./Add";
-import { FaCalculator } from "react-icons/fa";
+import Chart from "react-apexcharts";
 function Summary({ totalAmounts }) {
+  const data = {
+    options: {
+      chart: {
+        id: 'basic-bar'
+      },
+      xaxis: {
+        categories: Object.keys(totalAmounts)
+      }
+    },
+    series: [
+      {
+        name: "Totals",
+        data: Object.keys(totalAmounts).map(key => totalAmounts[key])
+      }
+    ]
+  }
+  console.log(totalAmounts)
   return (
-    <div className='row d-flex justify-content-center'>
-      <div className="col-sm text-center">Total Income <FaCalculator />{totalAmounts.income}</div>
-      <div className="col-sm text-center">Total expense <FaCalculator />{totalAmounts.expense}</div>
-      <div className="col-sm text-center">Total asset <FaCalculator />{totalAmounts.asset}</div>
-      <div className="col-sm text-center">Total liability <FaCalculator />{totalAmounts.liability}</div>
+    <>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <Chart
+          options={data.options}
+          series={data.series}
+          type='bar' width='400'
+          height='400' />
+      </div>
       <div>
         <Add />
       </div>
-    </div>
+    </>
   );
 }
 

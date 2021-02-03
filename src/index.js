@@ -16,6 +16,7 @@ if(token){
     type:"SET_USER",
     payload:decode.user
   })
+
 }
 ReactDOM.render(
   <React.StrictMode>

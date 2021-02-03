@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
 import TransactionList from "./TransactionList";
 
 function Transaction({ name, data }) {
 
   return (
     <div className='card'>
-      <h4 className='card-title text-center mt-4'>{name}</h4>
+      <h4 className='card-title text-center mt-4'>{name.toUpperCase()}</h4>
 
       {data.trans.length > 0 
       ?
@@ -15,7 +16,7 @@ function Transaction({ name, data }) {
               <button
                 className="btn btn-outline-primary block"
                 type="submit">
-                  See More
+                  <Link to={`/seeMore/${name}`}>See More</Link>
               </button>
           }
 

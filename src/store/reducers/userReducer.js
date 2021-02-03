@@ -1,5 +1,5 @@
 const init = {
-    isAuthenticated:false,
+    isAuthenticated:true,
     user:{},
     error:{},
 }
